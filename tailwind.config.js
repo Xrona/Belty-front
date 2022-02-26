@@ -1,0 +1,40 @@
+module.exports = {
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './assets/**/*.scss',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+  ],
+  theme: {
+    extend: {},
+    colors: {
+      'blue-100': '#63CCFF',
+      'blue-80': '#4FC3F7',
+      'blue-60': '#039BE5',
+      'blue-40': '#006DB3',
+      'black-100': '#000000',
+      'black-80': '#212121',
+      'black-60': '#484848',
+    },
+    spacing: {
+      0: '0',
+      1: '5px',
+      2: '10px',
+      3: '15px',
+      4: '20px',
+      5: '25px',
+      6: '30px',
+      7: '35px',
+      8: '40px',
+      9: '45px',
+      10: '50px',
+    },
+    borderRadius: {
+      2: '2px',
+      5: '5px',
+    },
+  },
+  plugins: [],
+}

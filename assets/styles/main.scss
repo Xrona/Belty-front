@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1140px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    .main-container {
+      flex-grow: 1;
+    }
+  }
+}
+
+@layer components {
+  .menu-links {
+    li {
+      @apply inline mr-2 last:mr-0 text-black-100;
+    }
+  }
+}

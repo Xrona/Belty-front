@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  node:
+    build:
+      context: docker/node
+    user: node
+    working_dir: /home/node/app
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3030
+    logging:
+      options:
+        max-size: '10m'
+        max-file: '3'
+    expose:
+      - 3030
+    volumes:
+      - ./:/home/node/app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend-rateclub.rule=Host(`${DOMAIN}`)"
+    networks:
+      - web
+    command: sh -c 'yarn && yarn dev'
+    restart: ${RESTART}
+
+networks:
+  web:
+    external: true

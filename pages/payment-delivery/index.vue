@@ -1,13 +1,9 @@
 <template>
-$END$
+  <div>payment delivery page</div>
 </template>
 
 <script>
 export default {
-name: "index"
+  name: 'PaymentDeliveryPage',
 }
 </script>
-
-<style scoped>
-
-</style>
