@@ -1,25 +1,461 @@
+@import '../fonts/fonts';
+@import '../mixins/media';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    max-width: 1140px;
-    margin: 0 auto;
-    min-height: 100vh;
+@layer base {
+  .svg-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    color: inherit;
+    vertical-align: middle;
+    fill: none;
+    stroke: currentColor;
+  }
 
-    .main-container {
-      flex-grow: 1;
+  *:focus-visible {
+    outline: none !important;
+  }
+
+  .svg-fill {
+    fill: currentColor;
+    stroke: none;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 15px;
+
+    @include sm-tablets {
+      width: 100%;
     }
+
+    @include md-desktop {
+      max-width: 1170px;
+      margin: 0 auto;
+    }
+
+    @include lg-desktop {
+      padding: 0;
+    }
+
+    .row {
+      width: calc(100% + 30px);
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px 0;
+      gap: 0;
+
+      [class^='col'] {
+        padding: 0 15px 0;
+      }
+
+      .col-12 {
+        width: 100%;
+      }
+
+      .col-11 {
+        width: calc(100% / 12 * 11);
+      }
+
+      .col-10 {
+        width: calc(100% / 12 * 10);
+      }
+
+      .col-9 {
+        width: calc(100% / 12 * 9);
+      }
+
+      .col-8 {
+        width: calc(100% / 12 * 8);
+      }
+
+      .col-7 {
+        width: calc(100% / 12 * 7);
+      }
+
+      .col-6 {
+        width: calc(100% / 12 * 6);
+      }
+
+      .col-5 {
+        width: calc(100% / 12 * 5);
+      }
+
+      .col-4 {
+        width: calc(100% / 12 * 4);
+      }
+
+      .col-3 {
+        width: calc(100% / 12 * 3);
+      }
+
+      .col-2 {
+        width: calc(100% / 12 * 2);
+      }
+
+      .col-1 {
+        width: calc(100% / 12 * 1);
+      }
+
+      .col-sm-12 {
+        @include sm-tablets {
+          width: 100%;
+        }
+      }
+
+      .col-sm-11 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 11);
+        }
+      }
+
+      .col-sm-10 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 10);
+        }
+      }
+
+      .col-sm-9 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 9);
+        }
+      }
+
+      .col-sm-8 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 8);
+        }
+      }
+
+      .col-sm-7 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 7);
+        }
+      }
+
+      .col-sm-6 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 6);
+        }
+      }
+
+      .col-sm-5 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 5);
+        }
+      }
+
+      .col-sm-4 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 4);
+        }
+      }
+
+      .col-sm-3 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 3);
+        }
+      }
+
+      .col-sm-2 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 2);
+        }
+      }
+
+      .col-sm-1 {
+        @include sm-tablets {
+          width: calc(100% / 12 * 1);
+        }
+      }
+
+      .col-md-12 {
+        @include md-desktop {
+          width: 100%;
+        }
+      }
+
+      .col-md-11 {
+        @include md-desktop {
+          width: calc(100% / 12 * 11);
+        }
+      }
+
+      .col-md-10 {
+        @include md-desktop {
+          width: calc(100% / 12 * 10);
+        }
+      }
+
+      .col-md-9 {
+        @include md-desktop {
+          width: calc(100% / 12 * 9);
+        }
+      }
+
+      .col-md-8 {
+        @include md-desktop {
+          width: calc(100% / 12 * 8);
+        }
+      }
+
+      .col-md-7 {
+        @include md-desktop {
+          width: calc(100% / 12 * 7);
+        }
+      }
+
+      .col-md-6 {
+        @include md-desktop {
+          width: calc(100% / 12 * 6);
+        }
+      }
+
+      .col-md-5 {
+        @include md-desktop {
+          width: calc(100% / 12 * 5);
+        }
+      }
+
+      .col-md-4 {
+        @include md-desktop {
+          width: calc(100% / 12 * 4);
+        }
+      }
+
+      .col-md-3 {
+        @include md-desktop {
+          width: calc(100% / 12 * 3);
+        }
+      }
+
+      .col-md-2 {
+        @include md-desktop {
+          width: calc(100% / 12 * 2);
+        }
+      }
+
+      .col-md-1 {
+        @include md-desktop {
+          width: calc(100% / 12 * 1);
+        }
+      }
+
+      .col-lg-12 {
+        @include lg-desktop {
+          width: 100%;
+        }
+      }
+
+      .col-lg-11 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 11);
+        }
+      }
+
+      .col-lg-10 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 10);
+        }
+      }
+
+      .col-lg-9 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 9);
+        }
+      }
+
+      .col-lg-8 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 8);
+        }
+      }
+
+      .col-lg-7 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 7);
+        }
+      }
+
+      .col-lg-6 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 6);
+        }
+      }
+
+      .col-lg-5 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 5);
+        }
+      }
+
+      .col-lg-4 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 4);
+        }
+      }
+
+      .col-lg-3 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 3);
+        }
+      }
+
+      .col-lg-2 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 2);
+        }
+      }
+
+      .col-lg-1 {
+        @include lg-desktop {
+          width: calc(100% / 12 * 1);
+        }
+      }
+    }
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transform-origin: left top;
+    transition: transform 0.49s ease;
+  }
+
+  .slide-enter, .slide-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+    transform-origin: left top;
+    transform: ScaleY(0);
+  }
+}
+
+@layer utilities {
+  .base-shadow {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.18);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 4px #bfbfbf;
   }
 }
 
 @layer components {
-  .menu-links {
-    li {
-      @apply inline mr-2 last:mr-0 text-black-100;
+  .burger-button {
+    span {
+      transition: width 0.75s ease;
+      transition-delay: 0.35s;
+    }
+
+    span,
+    &:before,
+    &:after {
+      @apply block bg-black-100 w-full h-[3px] rounded-10;
+    }
+
+    &:before,
+    &:after {
+      transform-origin: center;
+      transition: transform 0.55s ease;
+      content: '';
+      display: block;
+    }
+
+    @apply w-button h-button rounded-2 px-[8px] py-[11.5px] bg-white flex flex-col gap-1;
+
+    &.active {
+      span {
+        width: 0;
+        transition-delay: 0s;
+      }
+
+      &:before,
+      &:after {
+        transition-delay: 0.45s;
+      }
+
+      &:before {
+        transform: TranslateY(8px) Rotate(-45deg);
+      }
+
+      &:after {
+        transform: TranslateY(-8px) Rotate(45deg);
+      }
+    }
+  }
+
+  .menu-item {
+    @apply leading-[29px] text-text font-jura text-black-80 px-1 transition-colors text-left;
+
+    &:hover {
+      @apply text-blue-80 bg-gray-100;
+    }
+  }
+
+  .box-button {
+    @apply h-button bg-blue-60 font-jura text-text text-white rounded-2 border border-blue-60 transition;
+
+    &:hover {
+      @apply bg-blue-80 border-blue-80;
+    }
+
+    &:focus {
+      @apply bg-blue-60 border-blue-40;
+    }
+    &:active {
+      @apply bg-blue-40 border-blue-40;
+    }
+  }
+
+  .text-input {
+    @apply relative;
+
+    input {
+      @apply h-[42px] w-full px-3 py-[11.5px] border border-blue-60 rounded-2 text-black-60 font-jura text-text transition;
+
+      &:focus {
+        @apply border-blue-80;
+      }
+    }
+
+    &.with-icon {
+      span {
+        @apply absolute top-[7.5px] left-0 text-gray-40;
+      }
+    }
+
+    &.underline-input {
+      input {
+        @apply border-t-0 border-x-0 rounded-0 h-8 pl-6;
+      }
+    }
+  }
+
+  .catalog-item {
+    @apply p-1 text-text font-jura font-semibold text-black-60 cursor-pointer;
+
+    &.active {
+      @apply bg-blue-60 text-white;
+    }
+  }
+
+  .tag-button {
+    @apply p-1 text-text font-jura font-semibold text-blue-40 transition;
+
+    &.active {
+      @apply bg-blue-60 text-white;
+    }
+
+    &:disabled {
+      @apply bg-gray-60 text-white;
+    }
+  }
+
+  .price {
+    &:after {
+      content: ' BYN';
+      display: inline;
     }
   }
 }

@@ -1,0 +1,6 @@
+@import '../mixins/font-face';
+
+@include font('Montserrat', 'normal', 500, '../../static/fonts/Montserrat.ttf');
+@include font('Jura', 'normal', 300, '../../static/fonts/Jura-Light.ttf');
+@include font('Jura', 'normal', 400, '../../static/fonts/Jura-Regular.ttf');
+@include font('Jura', 'normal', 700, '../../static/fonts/Jura-Bold.ttf');

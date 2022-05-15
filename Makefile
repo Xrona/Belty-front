@@ -32,6 +32,9 @@ install: cp-env docker-compose-override up
 yarn:
 	@docker-compose run --rm --no-deps node yarn
 
+yarn-icons:
+	@docker-compose run --rm --no-deps node yarn icons
+
 yarn-generate:
 	@docker-compose run --rm node yarn generate
 

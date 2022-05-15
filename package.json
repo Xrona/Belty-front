@@ -10,14 +10,17 @@
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "icons": "vsvg -s ./static/svg -t ./components/icons"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
+    "vue-click-outside": "^1.1.0",
     "vue-server-renderer": "^2.6.14",
+    "vue-svgicon": "^3.2.9",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
   },

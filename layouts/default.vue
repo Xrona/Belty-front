@@ -1,21 +1,15 @@
 <template>
-  <div class="wrapper">
-    <common-header />
-    <div class="main-container">
-      <Nuxt />
-    </div>
-    <div>footer</div>
+  <div class="container">
+    <main-header />
+    <Nuxt />
   </div>
 </template>
 
 <script>
-import CommonHeader from '~/components/common/header'
-
+import MainHeader from '~/components/common/main-header'
 export default {
   name: 'DefaultLayout',
 
-  components: {
-    CommonHeader,
-  },
+  components: { MainHeader },
 }
 </script>
