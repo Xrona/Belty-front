@@ -17,34 +17,7 @@
       <h4 class="text-h4 font-montserrat text-black-60">
         Дополнительны характеристики
       </h4>
-      <color-radio :colors="$options.colors" />
-      <div class="flex justify-between items-center flex-wrap">
-        <button class="link-button basis-full md:basis-auto">
-          Как подорбрать?
-        </button>
-        <box-button
-          class="outlined-button basis-full md:basis-auto"
-          text="Сделать гравировку"
-        />
-      </div>
-      <div class="flex justify-between items-center">
-        <span class="text-text font-bold font-jura"
-          >Упаковать как подарок*</span
-        >
-        <switch-slider />
-      </div>
-      <div class="flex justify-between gap-6 flex-wrap">
-        <dropdown-list
-          label="Размер"
-          :list="['test1', 'test2', 'test3']"
-          class="basis-full md:basis-auto md:flex-grow"
-        />
-        <dropdown-list
-          label="Длина"
-          :list="['test1', 'test2', 'test3']"
-          class="basis-full md:basis-auto md:flex-grow"
-        />
-      </div>
+      <product-options />
     </div>
     <template v-if="showReviews">
       <div class="flex flex-col gap-3">
@@ -56,16 +29,14 @@
 </template>
 
 <script>
-import ColorRadio from '~/components/product/color-radio'
-import BoxButton from '@/components/common/box-button'
-import SwitchSlider from '@/components/common/switch-slider'
-import DropdownList from '@/components/common/dropdown-list'
 import ReviewCard from '@/components/product/review-card'
+import ProductOptions from '@/components/product/product-options'
 export default {
   name: 'ProductInfo',
-  components: { ReviewCard, DropdownList, SwitchSlider, BoxButton, ColorRadio },
-
-  colors: ['#514108', '#232138', '#924108'],
+  components: {
+    ProductOptions,
+    ReviewCard,
+  },
 
   props: {
     showReviews: {

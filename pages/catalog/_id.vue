@@ -8,7 +8,7 @@
       <product-gallery />
     </div>
     <div class="col-12 col-lg-4">
-      <product-info />
+      <product-info :show-reviews="true" />
     </div>
   </div>
 </template>

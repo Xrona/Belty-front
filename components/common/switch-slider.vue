@@ -1,6 +1,10 @@
 <template>
-  <div class="switch-slider" :class="{ active: switchData }">
-    <button @click="switchHandler"></button>
+  <div
+    class="switch-slider"
+    :class="{ active: switchData }"
+    @click.stop="switchHandler"
+  >
+    <button></button>
   </div>
 </template>
 

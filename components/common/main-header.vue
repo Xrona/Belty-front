@@ -42,12 +42,8 @@
             </nuxt-link>
           </template>
         </div>
-        <div class="hidden xl:flex gap-3 items-center">
-          <div
-            class="flex justify-center items-center border-2 border-blue-40 text-blue-40 w-[56px] h-[56px] rounded-2"
-          >
-            <svg-icon name="profile" width="36" height="36" />
-          </div>
+        <div class="hidden xl:flex gap-2 items-center">
+          <profile-avatar />
           <div class="flex flex-col gap-1">
             <span class="text-black-60 text-h3 font-jura">Иванов Иван</span>
             <nuxt-link to="/logout" class="link-button h-[29px]"
@@ -62,9 +58,10 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
+import ProfileAvatar from '@/components/common/profile-avatar'
 export default {
   name: 'MainHeader',
-
+  components: { ProfileAvatar },
   directives: {
     ClickOutside,
   },

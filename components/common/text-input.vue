@@ -1,6 +1,6 @@
 <template>
   <div class="text-input">
-    <input v-model="content" :type="type" />
+    <input v-model="content" :type="type" :placeholder="placeholder" />
     <template v-if="icon">
       <span>
         <svg-icon :name="icon" :width="iconWidth" :height="iconHeight" />
@@ -19,6 +19,11 @@ export default {
   },
 
   props: {
+    placeholder: {
+      type: [String, null],
+      default: '',
+    },
+
     value: {
       type: String,
       default: '',

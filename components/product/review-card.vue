@@ -1,5 +1,5 @@
 <template>
-  <div class="px-3 py-4 flex flex-col gap-2 bg-gray-100 rounded-5">
+  <div class="px-3 py-4 flex flex-col gap-2 bg-gray-100 rounded-5 card-shadow">
     <div class="flex gap-2 items-center">
       <img
         src=""
