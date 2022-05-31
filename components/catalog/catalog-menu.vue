@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto w-[255px] bg-white h-screen md:h-auto">
+  <div class="mx-auto w-[255px] bg-white h-screen md:mx-0 md:h-auto">
     <h2 class="mb-4 text-h2 text-black-60">Каталог</h2>
     <ul class="flex flex-col gap-2">
       <template v-for="(item, idx) in $options.menuList">

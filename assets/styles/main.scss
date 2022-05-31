@@ -25,6 +25,21 @@
     stroke: none;
   }
 
+  .svg-up {
+    transform: rotate(0deg);
+  }
+
+  .svg-right {
+    transform: rotate(90deg);
+  }
+  .svg-down {
+    transform: rotate(180deg);
+  }
+
+  .svg-left {
+    transform: rotate(-90deg);
+  }
+
   .container {
     width: 100%;
     padding: 0 15px;
@@ -36,10 +51,6 @@
     @include md-desktop {
       max-width: 1170px;
       margin: 0 auto;
-    }
-
-    @include lg-desktop {
-      padding: 0;
     }
 
     .row {
@@ -394,7 +405,7 @@
   }
 
   .box-button {
-    @apply h-button bg-blue-60 font-jura text-text text-white rounded-2 border border-blue-60 transition;
+    @apply h-button px-3  bg-blue-60 font-jura text-text text-white font-jura rounded-2 border border-blue-60 transition;
 
     &:hover {
       @apply bg-blue-80 border-blue-80;
@@ -405,6 +416,42 @@
     }
     &:active {
       @apply bg-blue-40 border-blue-40;
+    }
+
+    &.with-icon {
+      @apply px-0 w-button h-button;
+    }
+
+    &.outlined-button {
+      @apply bg-white border-blue-60 text-blue-60;
+
+      &:hover {
+        @apply border-blue-80 text-blue-80;
+      }
+
+      &:focus {
+        @apply border-blue-40 text-blue-40;
+      }
+
+      &:active {
+        @apply border-white text-blue-40;
+      }
+
+      &:disabled {
+        @apply border-gray-60 text-gray-60;
+      }
+    }
+  }
+
+  .link-button {
+    @apply text-text px-1 h-[42px] flex items-center text-blue-60 transition font-jura;
+
+    &:hover {
+      @apply text-blue-80;
+    }
+
+    &:visited {
+      @apply text-blue-40;
     }
   }
 
@@ -457,5 +504,99 @@
       content: ' BYN';
       display: inline;
     }
+  }
+
+  .gallery-dots {
+    display: flex !important;
+
+    @apply py-4 gap-2;
+
+    li {
+      cursor: pointer;
+    }
+
+    .slick-active div {
+      @apply bg-blue-60;
+    }
+  }
+
+  .gallery-image {
+    @apply w-full aspect-[6/7] sm:aspect-auto sm:h-[455px] cursor-pointer rounded-2;
+
+    img {
+      @apply w-full h-full object-cover pointer-events-none rounded-2;
+    }
+  }
+
+  .color-radio {
+    padding: 0 !important;
+    @apply invisible h-0 w-0;
+
+    &:checked + div {
+      @apply border-5 border-blue-80;
+    }
+  }
+
+  .switch-slider {
+    @apply w-10 h-5 rounded-[50px] bg-gray-80 relative transition;
+
+    button {
+      @apply w-5 h-5 rounded-full bg-blue-60 border border-gray-80 absolute left-0 transition-all;
+    }
+
+    &.active {
+      @apply bg-blue-60;
+
+      button {
+        @apply bg-white border-blue-60 left-5;
+      }
+    }
+  }
+
+  .dropdown-list {
+    @apply flex flex-col gap-[3px] relative;
+
+    &__label {
+      @apply text-xs-text font-jura text-black-100;
+    }
+
+    button {
+      @apply w-full h-button bg-blue-60 text-white flex justify-between items-center px-3 text-text font-jura rounded-2;
+
+      svg {
+        @apply transition;
+      }
+    }
+
+    ul {
+      top: calc(100% + 3px);
+      @apply py-[2px] rounded-b-[3px] bg-gray-100 absolute w-full z-10;
+
+      li button {
+        @apply bg-gray-100 h-[29px] w-full text-black-60 px-3 py-1 text-text font-jura transition;
+
+        &:hover {
+          @apply bg-white;
+        }
+      }
+    }
+  }
+
+  .start-grade-button {
+    @apply text-blue-40;
+
+    &:hover {
+      @apply text-blue-100;
+    }
+
+    &:hover ~ & {
+      @apply text-blue-100;
+    }
+  }
+
+  .cart-product {
+    box-shadow: 0 4px 4px;
+
+    @apply shadow-gray-60 px-3 py-5 rounded-2 flex flex-col gap-3 w-full;
   }
 }

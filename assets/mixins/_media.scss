@@ -1,7 +1,14 @@
-$xl-desktop-width: 1904px;
-$lg-desktop-width: 1264px;
-$md-desktop-width: 960px;
-$sm-tablets-width: 768px;
+$xxl-desktop-width: 1536px;
+$xl-desktop-width: 1280px;
+$lg-desktop-width: 1024px;
+$md-desktop-width: 768px;
+$sm-tablets-width: 640px;
+
+@mixin xxl-desktop {
+  @media screen and (min-width: #{$xxl-desktop-width}) {
+    @content;
+  }
+}
 
 @mixin xl-desktop {
   @media only screen and (min-width: #{$xl-desktop-width}) {

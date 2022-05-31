@@ -8,7 +8,15 @@ module.exports = {
     './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        0: '0',
+        1: '1px',
+        2: '2px',
+        3: '3px',
+        5: '5px',
+      },
+    },
     fontFamily: {
       jura: ['Jura'],
       montserrat: ['Montserrat'],
@@ -62,6 +70,7 @@ module.exports = {
       2: '2px',
       5: '5px',
       10: '10px',
+      full: '100%',
     },
     container: {
       screens: {

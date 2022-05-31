@@ -13,7 +13,7 @@
         </template>
       </div>
     </div>
-    <box-button class="w-[42px]">
+    <box-button class="w-[42px] justify-center px-0">
       <template #icon>
         <svg-icon name="close" />
       </template>

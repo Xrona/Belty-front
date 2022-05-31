@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-[360px] bg-white rounded-5 card-shadow">
+  <div
+    class="min-h-[360px] bg-white rounded-5 card-shadow cursor-pointer"
+    @click.stop="goToProduct"
+  >
     <img
       src="https://images.unsplash.com/photo-1652067352562-9f983f9c9255?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
       alt="Product image"
@@ -19,7 +22,7 @@
       </div>
       <div class="pt-5 flex gap-2">
         <box-button text="Buy" class="flex-grow" />
-        <box-button class="w-button">
+        <box-button class="w-button with-icon">
           <template #icon>
             <svg-icon name="cart" width="20" height="20" />
           </template>
@@ -35,5 +38,11 @@ export default {
   name: 'ProductCard',
 
   components: { BoxButton },
+
+  methods: {
+    goToProduct() {
+      this.$router.push('/catalog/1')
+    },
+  },
 }
 </script>
