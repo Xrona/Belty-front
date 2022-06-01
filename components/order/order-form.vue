@@ -90,7 +90,7 @@
 
 <script>
 import TextInput from '@/components/common/text-input'
-import OrderCard from '@/pages/profile/order/order-card'
+import OrderCard from '@/components/order/order-card'
 import RadioButtons from '@/components/common/radio-buttons'
 import TextArea from '@/components/common/text-area'
 import BoxButton from '@/components/common/box-button'
