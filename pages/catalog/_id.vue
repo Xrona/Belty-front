@@ -20,8 +20,7 @@ import CatalogMenu from '@/components/catalog/catalog-menu'
 import BackButton from '@/components/common/back-button'
 export default {
   name: 'ProductPage',
+
   components: { BackButton, CatalogMenu, ProductInfo, ProductGallery },
 }
 </script>
-
-<style scoped></style>

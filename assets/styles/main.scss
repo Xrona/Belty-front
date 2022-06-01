@@ -631,6 +631,14 @@
     }
   }
 
+  .text-area {
+    @apply w-full h-[150px] px-3 py-[11.5px] border border-blue-60 rounded-2 text-black-60 font-jura text-text transition;
+
+    &:focus {
+      @apply border-blue-80;
+    }
+  }
+
   .catalog-item {
     @apply p-1 text-text font-jura font-semibold text-black-60 cursor-pointer;
 
@@ -751,6 +759,36 @@
 
     .gallery-image {
       @apply md:aspect-square h-auto;
+    }
+  }
+
+  .radio-button {
+    @apply flex gap-2 items-center;
+
+    &__box {
+      @apply relative;
+
+      > div {
+        @apply w-6 h-6 flex items-center justify-center border border-blue-40 text-white rounded-2 transition;
+      }
+
+      > input {
+        @apply absolute invisible h-0 w-0;
+      }
+
+      input:checked + div {
+        @apply bg-blue-60 border-blue-60;
+      }
+    }
+  }
+
+  .order-form {
+    .text-input {
+      @apply pb-6;
+    }
+
+    .text-area {
+      @apply mb-6;
     }
   }
 }

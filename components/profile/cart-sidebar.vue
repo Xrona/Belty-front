@@ -25,12 +25,14 @@
       </div>
       <profile-avatar />
     </div>
-    <div>
-      <p class="mb-1 text-text font-jura font-bold">
-        Стоимость товаров <span class="text-blue-60 price">322323</span>
-      </p>
-      <box-button text="Оформить заказ" class="w-[160px]" />
-    </div>
+    <template v-if="showFullPrice">
+      <div>
+        <p class="mb-1 text-text font-jura font-bold">
+          Стоимость товаров <span class="text-blue-60 price">322323</span>
+        </p>
+        <box-button text="Оформить заказ" class="w-[160px]" />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -39,6 +41,13 @@ import ProfileAvatar from '@/components/common/profile-avatar'
 import BoxButton from '@/components/common/box-button'
 export default {
   name: 'CartSidebar',
+
   components: { BoxButton, ProfileAvatar },
+
+  computed: {
+    showFullPrice() {
+      return this.$route.path?.includes('cart') ?? false
+    },
+  },
 }
 </script>

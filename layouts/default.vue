@@ -2,7 +2,9 @@
   <div>
     <div class="container pb-10">
       <main-header />
-      <Nuxt />
+      <div class="min-h-screen">
+        <Nuxt />
+      </div>
     </div>
     <main-footer />
   </div>
