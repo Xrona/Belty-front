@@ -1,11 +1,18 @@
 <template>
-  <profile-body name="История заказов"></profile-body>
+  <profile-body name="История заказов">
+    <template #card="{ className }">
+      <div :class="className">
+        <cart-product />
+      </div>
+    </template>
+  </profile-body>
 </template>
 
 <script>
 import ProfileBody from '@/components/profile/profile-body'
+import CartProduct from '@/components/profile/cart-product'
 export default {
   name: 'HistoryOrderPage',
-  components: { ProfileBody },
+  components: { CartProduct, ProfileBody },
 }
 </script>
