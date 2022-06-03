@@ -1,23 +1,42 @@
 <template>
   <div
-    class="min-h-[360px] bg-white rounded-5 card-shadow cursor-pointer"
+    class="relative min-h-[360px] bg-white rounded-5 card-shadow cursor-pointer"
     @click.stop="goToProduct"
   >
+    <div class="absolute flex items-center gap-1 top-2 left-2">
+      <template v-if="product.discount">
+        <div class="product-tag">- {{ product.discount }}</div>
+      </template>
+      <template v-if="product.bestseller">
+        <div class="product-tag bg-blue-40">
+          <svg-icon name="top" />
+        </div>
+      </template>
+    </div>
     <img
-      src="https://images.unsplash.com/photo-1652067352562-9f983f9c9255?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+      :src="product.image.url"
       alt="Product image"
       class="h-[225px] bg-blue-80 object-cover w-full rounded-t-5"
     />
     <div class="px-2 pt-2 pb-4">
       <div class="flex justify-between flex-wrap gap-1">
         <h3 class="font-jura text-text text-black-60 font-normal">
-          Name product
+          {{ product.name }}
         </h3>
-        <span class="font-jura text-text font-semibold text-black-60 price">
-          48.50
+        <span
+          class="flex items-start justify-end gap-1 font-jura text-text text-right flex-grow font-semibold text-black-60"
+        >
+          <template v-if="product.oldPrice">
+            <span class="old-price">
+              {{ product.oldPrice }}
+            </span>
+          </template>
+          <span class="price">
+            {{ product.price }}
+          </span>
         </span>
         <span class="w-full text-xs-text text-black-60 font-light">
-          description
+          {{ product.article }}
         </span>
       </div>
       <div class="pt-5 flex gap-2">
@@ -38,6 +57,13 @@ export default {
   name: 'ProductCard',
 
   components: { BoxButton },
+
+  props: {
+    product: {
+      type: Object,
+      default: Object,
+    },
+  },
 
   methods: {
     goToProduct() {

@@ -2,14 +2,21 @@
   <div class="mx-auto w-[255px] bg-white h-screen md:mx-0 md:h-auto">
     <h2 class="mb-4 text-h2 text-black-60">Каталог</h2>
     <ul class="flex flex-col gap-2">
-      <template v-for="(item, idx) in $options.menuList">
+      <li
+        class="catalog-item"
+        :class="{ active: currentCategory === null }"
+        @click="selectCategoryHandler(null)"
+      >
+        Все
+      </li>
+      <template v-for="item of categories">
         <li
-          :key="item"
+          :key="item.name"
           class="catalog-item"
-          :class="{ active: idx === 1 }"
-          @click="selectCategory"
+          :class="{ active: item.id === currentCategory }"
+          @click="selectCategoryHandler(item.id)"
         >
-          {{ item }}
+          {{ item.name }}
         </li>
       </template>
     </ul>
@@ -17,22 +24,24 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from 'vuex'
+
 export default {
   name: 'CatalogMenu',
 
-  methods: {
-    selectCategory() {
-      this.$emit('selectCategory')
-    },
+  computed: {
+    ...mapGetters('category', ['categories']),
+    ...mapGetters('product', ['currentCategory']),
   },
 
-  menuList: [
-    'Классические ремни',
-    'Ремни с автоматической пряжкой 40 мм',
-    'Ремни с автоматической пряжкой 35 мм',
-    'Широкие ремни 50 мм',
-    'Женские ремни  30 и 35 мм',
-    'Женские ремни 20 и 25 мм',
-  ],
+  methods: {
+    ...mapMutations('product', ['selectCategory']),
+    ...mapActions('product', ['getProducts']),
+
+    async selectCategoryHandler(id) {
+      this.selectCategory(id)
+      await this.getProducts()
+    },
+  },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <button class="box-button">
+  <button class="box-button" @click="$emit('click')">
     <slot name="icon" />
     {{ text }}
   </button>

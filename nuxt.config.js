@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -22,6 +24,8 @@ export default {
     '@/plugins/svg-icon.js',
     '@/plugins/vue-slick.js',
     '@/plugins/api-client.js',
+    '@/plugins/load.js',
+    '@/plugins/lodash.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -30,6 +34,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/dotenv',
     '@nuxt/postcss8',
     '@nuxtjs/eslint-module',
   ],
@@ -42,8 +47,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.API_DOMAIN,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

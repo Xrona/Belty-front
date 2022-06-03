@@ -32,6 +32,7 @@
   .svg-right {
     transform: rotate(90deg);
   }
+
   .svg-down {
     transform: rotate(180deg);
   }
@@ -562,6 +563,7 @@
     &:focus {
       @apply bg-blue-60 border-blue-40;
     }
+
     &:active {
       @apply bg-blue-40 border-blue-40;
     }
@@ -645,6 +647,20 @@
     &.active {
       @apply bg-blue-60 text-white;
     }
+  }
+
+  .old-price {
+    @apply relative text-xs-text font-medium font-montserrat;
+
+    &:after {
+      content: '';
+
+      @apply absolute top-1 left-0 block w-full h-[1.5px] bg-blue-40 rotate-[20deg];
+    }
+  }
+
+  .product-tag {
+    @apply flex justify-center items-center text-sm-text font-jura font-medium p-1 min-w-[30px] min-h-[30px] bg-blue-80 text-white rounded-2;
   }
 
   .tag-button {

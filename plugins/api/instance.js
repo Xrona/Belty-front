@@ -4,6 +4,8 @@ const headers = {
   accept: 'application/json',
 }
 
+console.log(process.env.API_DOMAIN, 'tetdfgdsgdsg')
+
 const instance = axios.create({
   baseURL: process.env.API_DOMAIN,
 })
@@ -18,12 +20,12 @@ export default (context) => {
       if (!config) {
         config = {}
       }
-
-      const token = context.$auth.strategy.token.get()
-
-      if (token) {
-        headers.Authorization = token
-      }
+      //
+      // const token = context?.$auth?.strategy?.token?.get()
+      //
+      // if (token) {
+      //   headers.Authorization = token
+      // }
 
       return {
         ...config,

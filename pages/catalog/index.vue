@@ -9,10 +9,9 @@
         <catalog-sorting />
         <catalog-filter />
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <product-card />
-          <product-card />
-          <product-card />
-          <product-card />
+          <template v-for="product of products">
+            <product-card :key="product.name" :product="product" />
+          </template>
         </div>
       </div>
     </div>
@@ -20,6 +19,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import ProductCard from '@/components/catalog/product-card'
 import CatalogSearch from '@/components/catalog/catalog-search'
 import CatalogSorting from '@/components/catalog/catalog-sorting'
@@ -42,7 +42,19 @@ export default {
     }
   },
 
+  async fetch() {
+    await this.getCategories()
+    await this.getProducts()
+  },
+
+  computed: {
+    ...mapGetters('product', ['products']),
+  },
+
   methods: {
+    ...mapActions('product', ['getProducts']),
+    ...mapActions('category', ['getCategories']),
+
     selectCategory() {
       this.category = true
     },
