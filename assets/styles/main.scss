@@ -621,8 +621,12 @@
     }
 
     &.with-icon {
-      span {
+      span.prefix-icon {
         @apply absolute top-[7.5px] left-0 text-gray-40;
+      }
+
+      button.suffix-icon {
+        @apply absolute top-[7.5px] right-0 text-black-60;
       }
     }
 
@@ -650,12 +654,12 @@
   }
 
   .old-price {
-    @apply relative text-xs-text font-medium font-montserrat;
+    @apply relative text-xs-text font-black font-montserrat text-gray-60;
 
-    &:after {
+    &:before {
       content: '';
 
-      @apply absolute top-1 left-0 block w-full h-[1.5px] bg-blue-40 rotate-[20deg];
+      @apply absolute top-[55%] left-[-5%] block w-[110%] h-[1.5px] bg-gray-60 translate-y-[-50%] opacity-75;
     }
   }
 

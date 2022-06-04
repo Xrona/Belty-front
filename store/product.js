@@ -10,10 +10,53 @@ class Product {
     this.price = product.price ?? ''
     this.discount = product.discount ?? null
     this.bestseller = product.bestseller ?? null
-    this.image = {
-      id: product?.image?.id ?? null,
-      url: product?.image?.url ?? null,
-      queue: product?.image.queue ?? 0,
+
+    if (product?.guarantee) {
+      this.guarantee = product.guarantee
+    }
+
+    if (product?.country) {
+      this.country = product.country
+    }
+
+    if (product?.material) {
+      this.material = product.material
+    }
+
+    if (product?.image) {
+      this.image = {
+        id: product?.image?.id ?? null,
+        url: product?.image?.url ?? null,
+        queue: product?.image?.queue ?? 0,
+      }
+    }
+
+    if (product?.images) {
+      this.images = product.images.map((image) => {
+        return {
+          id: image?.id ?? null,
+          url: image?.url ?? null,
+          queue: image?.queue ?? 0,
+        }
+      })
+    }
+
+    if (product?.colors) {
+      this.colors = product.colors.map((color) => {
+        return {
+          id: color.id,
+          name: color.name,
+        }
+      })
+    }
+
+    if (product?.sizes) {
+      this.sizes = product.sizes.map((size) => {
+        return {
+          id: size.id,
+          name: size.name,
+        }
+      })
     }
   }
 }
@@ -22,6 +65,7 @@ export default {
   state() {
     return {
       products: [],
+      product: null,
       currentCategory: null,
       search: null,
       sortingDate: null,
@@ -32,6 +76,10 @@ export default {
   },
 
   getters: {
+    product(state) {
+      return state.product
+    },
+
     products(state) {
       return state.products
     },
@@ -66,6 +114,10 @@ export default {
       state.products = payload.map((product) => {
         return new Product(product)
       })
+    },
+
+    setProduct(state, payload) {
+      state.product = new Product(payload)
     },
 
     selectCategory(state, id) {
@@ -130,6 +182,17 @@ export default {
         (error) => {
           console.log(error)
         }
+      )
+    },
+
+    async getProduct({ commit }, id) {
+      await this.$load(
+        async () => {
+          const { data } = await this.$api.product.getProduct(id)
+
+          commit('setProduct', data.data ?? {})
+        },
+        (error) => console.log(error)
       )
     },
   },

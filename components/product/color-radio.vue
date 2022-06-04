@@ -1,19 +1,19 @@
 <template>
   <div class="flex gap-2">
-    <template v-for="(color, idx) in colors">
+    <template v-for="color in colors">
       <div
         :key="`colorRadio-${color}`"
         class="w-8 h-8"
-        @click="selectColorIdx = idx"
+        @click="selectColorIdx = color.id"
       >
         <div
           class="w-full h-full rounded-2 cursor-pointer"
-          :style="`background-color: ${color}`"
+          :style="`background-color: ${color.name}`"
         ></div>
         <input
           type="radio"
           class="color-radio"
-          :checked="selectColorIdx === idx"
+          :checked="selectColorIdx === color.id"
         />
       </div>
     </template>
