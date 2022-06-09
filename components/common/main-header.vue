@@ -27,7 +27,10 @@
         </transition>
         <div class="flex gap-4">
           <nuxt-link to="/" class="text-h1 text-black-60">Belty</nuxt-link>
-          <button class="bg-blue-60 text-white h-9 w-9 rounded-2">
+          <button
+            class="bg-blue-60 text-white h-9 w-9 rounded-2"
+            @click="goToCart"
+          >
             <svg-icon name="logo-cart" width="28" height="27" />
           </button>
         </div>
@@ -80,12 +83,16 @@ export default {
     hideMenu() {
       this.menu = false
     },
+
+    goToCart() {
+      this.$router.push('/profile/cart')
+    },
   },
 
   menuList: [
     {
       name: 'Каталог',
-      link: '/',
+      link: '/catalog',
     },
     {
       name: 'Акции',

@@ -9,16 +9,24 @@
           Привет, Иван
         </h3>
         <div class="flex flex-col gap-1">
-          <nuxt-link to="" class="link-button h-[29px] rounded-2 active-link"
+          <nuxt-link
+            to="/profile/cart"
+            class="link-button h-[29px] rounded-2 active-link"
             >Корзина</nuxt-link
           >
-          <nuxt-link to="" class="link-button h-[29px] rounded-2"
+          <nuxt-link
+            to="/profile/order/active"
+            class="link-button h-[29px] rounded-2"
             >Активные заказы</nuxt-link
           >
-          <nuxt-link to="" class="link-button h-[29px] rounded-2"
+          <nuxt-link
+            to="/profile/order/history"
+            class="link-button h-[29px] rounded-2"
             >История заказов</nuxt-link
           >
-          <nuxt-link to="" class="link-button h-[29px] rounded-2"
+          <nuxt-link
+            to="/profile/comment"
+            class="link-button h-[29px] rounded-2"
             >Комментарии</nuxt-link
           >
         </div>

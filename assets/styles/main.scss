@@ -572,6 +572,14 @@
       @apply px-0 w-button h-button;
     }
 
+    &.transparent-icon {
+      @apply px-0 w-button h-button bg-white border-white text-gray-40;
+
+      &:hover {
+        @apply bg-blue-40 text-white border-blue-40;
+      }
+    }
+
     &.outlined-button {
       @apply bg-white border-blue-60 text-blue-60;
 

@@ -4,8 +4,6 @@ const headers = {
   accept: 'application/json',
 }
 
-console.log(process.env.API_DOMAIN, 'tetdfgdsgdsg')
-
 const instance = axios.create({
   baseURL: process.env.API_DOMAIN,
 })
