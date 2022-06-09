@@ -1,10 +1,20 @@
 <template>
   <div class="text-input">
-    <input v-model="content" :type="type" :placeholder="placeholder" />
+    <input
+      v-model="content"
+      :type="type"
+      :placeholder="placeholder"
+      @keyup.enter="$emit('enter')"
+    />
     <template v-if="icon">
-      <span>
+      <span class="prefix-icon">
         <svg-icon :name="icon" :width="iconWidth" :height="iconHeight" />
       </span>
+    </template>
+    <template v-if="suffixIcon && content.length > 0">
+      <button class="suffix-icon" @click="$emit('iconHandle')">
+        <svg-icon :name="suffixIcon" :width="iconWidth" :height="iconHeight" />
+      </button>
     </template>
   </div>
 </template>
@@ -33,6 +43,10 @@ export default {
       default: 'text',
     },
     icon: {
+      type: String,
+      default: '',
+    },
+    suffixIcon: {
       type: String,
       default: '',
     },

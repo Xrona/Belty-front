@@ -13,6 +13,13 @@
             <product-card :key="product.name" :product="product" />
           </template>
         </div>
+        <template v-if="products.length === 0">
+          <div class="flex justify-center items-center">
+            <h4 class="text-h4 font-jura text-black-60">
+              По данному запросу нет товаров
+            </h4>
+          </div>
+        </template>
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@
         <ul>
           <template v-for="item of list">
             <li :key="item">
-              <button @click="selectOption(item)">{{ item }}</button>
+              <button @click="selectOption(item.id)">{{ item.name }}</button>
             </li>
           </template>
         </ul>

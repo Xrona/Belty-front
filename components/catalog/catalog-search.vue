@@ -3,7 +3,9 @@
     v-model="search"
     class="with-icon underline-input"
     icon="zoom"
-    @keydown.enter="searchHandler"
+    suffix-icon="close"
+    @enter="searchHandler"
+    @iconHandle="clearHandler"
   />
 </template>
 
@@ -34,6 +36,11 @@ export default {
     ...mapActions('product', ['getProducts']),
 
     searchHandler() {
+      this.getProducts()
+    },
+
+    clearHandler() {
+      this.search = ''
       this.getProducts()
     },
   },

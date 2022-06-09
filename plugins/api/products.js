@@ -6,8 +6,8 @@ export default (instance) => {
       })
     },
 
-    getProduct() {
-      return instance.get(`/products/${1}`)
+    getProduct(id) {
+      return instance.get(`/products/${id}`)
     },
 
     getCategories() {
